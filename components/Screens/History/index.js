@@ -35,7 +35,7 @@ export default function Home() {
     // console.warn('Saved log');
   };
 
-  // Check for bugs: Fill with leg days increasing date order, remove middle items see if they stay consistant
+  // Remove logged workout with the id given
   const removeLog = (id) => {
     const found = loggedWorkouts.findIndex((item) => item.id === id);
     if(found !== -1) {

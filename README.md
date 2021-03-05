@@ -1,13 +1,26 @@
-# Workout Loggin app
+# Workout Logging app
 
-My first go at working with React Native and I wanted to do an app where you could save the workouts you've finished.
-It allows you to create a name for an exercise along with info for the number of reps, sets and rest time you took.
-You can then create a workout using exercises you've created and they are stored for future use. 
-Finally you can save what workouts you have finished by going into the History screen and choosing a created workout and giving them a date. 
+My first go at working with React Native and I wanted to do an app where you could create your own exercises, use them to build a workout and get an overview of finished workouts.
 
-The UX could be improved quote a lot, since I initally started coding with minimal regard to the flow of actions.
+While developing this app I used the [Expo-CLI](https://expo.ios) to test the app on a phone using Android.
 
-Possible improvements to do:
-1. Allow the user to define the exercise properties themselves, such as sets, reps, intervals etc, since not all exercises don't include sets/reps. Then when creating a workout the user could pick an exercise and enter the values for the properties given.
-2. Combine the Workouts and History screen into one, allowing you to create and log the workout on the same screen.
-3. Somehow display the logged workouts in a calendar providing a good overview of the years workout progress.
+Link to deployment: https://expo.io/@johanntor/projects/workout-app
+
+If you have an expo account you should be able to scan the QR code to test the app, might be problematic on iOS phones. Maybe the 'Open project in browser' feature works in that case.
+
+To keep the data persistant I used the [async-storage](https://github.com/react-native-async-storage/async-storage) package. The storage related code is located in /util/storageMethods.js
+
+The UX could use a lot of improvement but in order to record a workout you finished you have to create the workout in the 'Workouts' screen but in order to do that there have to be exercises available which can be created in the 'Exercises' Screen...
+
+Any ideas of improving this flow are welcome.
+
+The files that are the most relevant for review are:
+* /components/*
+* /utils/*
+* /assets/quotes
+
+The data is stored in the following format:
+
+* Exercise: {id: number, name: string, reps: number, sets: number, rest: number, other: string}
+* Workout: {id: number, name: string, exercises: Exercise array}
+* LoggedWorkout: {id: number, workout: Workout object, date: Date}

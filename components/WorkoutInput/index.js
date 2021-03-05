@@ -47,7 +47,7 @@ export default function WorkoutInput({toggleWindow, saveWorkout, workouts}) {
     toggleWindow();
   };
 
-  // ToDo: using name as id right now, add an id field to exercises
+  // Handles the selection of the available exercises to create a workout
   const addRemoveExToWorkout = (exercise) => {
     const found = chosenExercises.findIndex(item => item.name === exercise.name);
     // If exercise has already been chosen splice it from the list and re-set the state

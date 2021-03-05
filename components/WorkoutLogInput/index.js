@@ -6,14 +6,15 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import getNextId from '../../util/general';
 import styles from './styles';
 
+// Input component for selecting a workout and choosing a date it was performed
 export default function WorkoutLogInput({toggleWindow, saveLog, loggedWorkouts}) {
-  // If workout.name === workoutButton. state.Workout.name => change the color
   const [workout, setWorkout] = useState({name: ''});
   const [workouts, setWorkouts] = useState([]);
   const [date, setDate] = useState(new Date(Date.now()));
   const [showDate, setShowDate] = useState(false);
 
   useEffect(() => {
+    // Getting the available workouts
     const getWorkouts = async () => {
       const data = await storage.readData('workouts');
       if(data !== null) {

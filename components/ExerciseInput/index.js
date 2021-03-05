@@ -10,15 +10,6 @@ export default function ExerciseInput({saveExercise, toggleInput, exercises}) {
   const [exRest, setExRest] = useState('');
   const [exOther, setExOther] = useState('');
 
-
-  // useEffect(() => {
-  //   console.warn('Name: ', exName);
-  // }, [exName]);
-
-  // useEffect(() => {
-  //   console.warn('Reps: ', exRep);
-  // }, [exRep]);
-
   const validateExercise = () => {
     if(!exName) {
       Alert.alert('Missing info', 'Please insert a name', [{ text: 'OK', onPress: () => null }],{ cancelable: false });

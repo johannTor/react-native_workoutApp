@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Pressable } from 'react-native';
-import { useFocusEffect } from '@react-navigation/native';
 import ScreenTitle from '../../ScreenTitle';
 import styles from './styles';
 import quotes from '../../../assets/quotes/quotes';
 
-/*
-TODO: Create a Quote component and load it into each screen?
-*/
 export default function Home({navigation}) {
   const title = 'WorkoutLogger';
   const [currQuote, setCurrQuote] = useState({});
@@ -17,6 +13,7 @@ export default function Home({navigation}) {
     const getRandomInt = (max) => {
       return Math.floor(Math.random() * Math.floor(max));
     };
+    // Generate a new quote when entering the home screen
     const unsubscribe = navigation.addListener('focus', () => {
       // Screen was focused
       const newQuote = quotes[getRandomInt(quotes.length)];
